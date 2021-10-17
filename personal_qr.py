@@ -11,14 +11,16 @@ def view(qrname):
 
 #Generate Funtion
 def generate(qrname):
+    title=input('Enter the title: ')
     print("Enter the Information")
     name=input('Name: ')
-    dob=input('DOB (DD/MM/YYYY): ')
-    highest_qualifications=input('Highest Qualifications: ')
-    contact=input('Contact')
-    
+    age=input('Age: ')
+    contact=input('Contact: ')
+    address=input('Address: ')
+    linkedin=input('LinkedIn: ')
+    social_media=input('Social Media: ')
 
-    data=name+'\n'+dob+'\n'+highest_qualifications+'\n'+contact
+    data=title+'\n'+'Name: '+name+'\n'+'Age: '+age+'\n'+'Contact: '+contact+'\n'+'Address: '+address+'\n'+'LinkedIn: '+linkedin+'\n'+'Social Media: '+social_media
     url=pyqrcode.create(data)
 
     url.svg(qrname-'png'+'svg', scale=8)
@@ -28,8 +30,8 @@ def generate(qrname):
     return qrname
 
 #Update Function
-def update(qr):
-    return(qr)
+def update(qrname):
+    return(qrname)
 
 #Driver Code
 def myqr(qrname=None):
