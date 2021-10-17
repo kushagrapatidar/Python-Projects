@@ -2,15 +2,15 @@ import pyqrcode
 import png
 
 #Read Function
-def read(qr):
-    return qr
+def read(qrname):
+    return qrname
 
 #View Function
-def view(qr):
-    print(qr)
+def view(qrname):
+    print(qrname)
 
 #Generate Funtion
-def generate():
+def generate(qrname):
     print("Enter the Information")
     name=input('Name: ')
     dob=input('DOB (DD/MM/YYYY): ')
@@ -21,11 +21,11 @@ def generate():
     data=name+'\n'+dob+'\n'+highest_qualifications+'\n'+contact
     url=pyqrcode.create(data)
 
-    url.svg("Personal Info.svg", scale=8)
+    url.svg(qrname-'png'+'svg', scale=8)
 
-    url.png('Personal Info.png', scale=6)
-    qr='Personal Info.png'
-    return qr
+    url.png(qrname, scale=6)
+
+    return qrname
 
 #Update Function
 def update(qr):
@@ -33,12 +33,12 @@ def update(qr):
 
 #Driver Code
 def myqr(qrname=None):
+    if qrname==None:
+        qrname=input("Enter the name of QR Code with extension: ")
     ch=input("Do you want to generate a new QR Code?\n('Y for Yes and 'N' for No): ")
     if ch.upper()=='Y':
-        qrname=generate()
+        qrname=generate(qrname)
     else:
-        if qrname==None:
-            qrname=input("Enter the name of QR Code with extension: ")
         ch=input("Do you want to Update or View the data on your QR Code?\n('U' to Update and 'V' to View the data): ")
         if ch.upper()=='U':
             update(qrname)
