@@ -5,3 +5,5 @@
 # from beep_sound import beep
 # beep()
 
+from face_recognition import get_faces
+get_faces()
