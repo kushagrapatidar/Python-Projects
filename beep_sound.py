@@ -1,6 +1,9 @@
 import winsound
 
 def beep():
-    f=2500
-    d=5000 #1000ms = 1s
-    winsound.Beep(f,d)
+
+    [winsound.Beep(i%4,5000) for i in range(10000) if i%4==0]
+    # f=0
+    # for i in range(10000):
+    #     if i%4==0:
+    #         winsound.Beep(f+=1,5000)
