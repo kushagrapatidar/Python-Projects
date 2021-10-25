@@ -1,7 +1,7 @@
 import cv2
 import sys
 def get_faces():
-    imagePath=sys.argv[1:]
+    imagePath=sys.argv[1]
     cascPath="haarcascade_fromtalface_default.xml"
     faceCascade=cv2.CascadeClassifier(cascPath)
     image=cv2.imread(imagePath)
