@@ -1,11 +1,15 @@
 import cv2
 import sys
 def get_faces():
-    imagePath=sys.argv[1]
+    imagePath=sys.argv[1:]
     cascPath="haarcascade_fromtalface_default.xml"
     faceCascade=cv2.CascadeClassifier(cascPath)
+    imageName=""
+    for _ in imagePath:
+        imageName+=_
+    imagePath=imageName
     image=cv2.imread(imagePath)
-    gray=cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    gray=cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     faces=faceCascade.detectMultiScale(
         gray,
         scaleFactor=1.1,
