@@ -49,3 +49,4 @@ def myqr(qrname=None):
     ch=input("Do you want to continue?\n('Y for Yes and 'N' for No): ")
     if ch.upper()=='Y':
         myqr(qrname)
+myqr()
